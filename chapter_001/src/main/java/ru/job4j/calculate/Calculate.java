@@ -7,7 +7,6 @@ public class Calculate {
 	/**
 	 * Method Main
 	 * @param args - args
-	 * @return void
 	 */
 	public static void main(String[] args) {
 		System.out.println("Hello World!");
