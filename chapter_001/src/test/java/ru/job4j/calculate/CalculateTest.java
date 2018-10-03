@@ -6,7 +6,7 @@ import static org.junit.Assert.assertThat;
  * Test метода echo
  * @author Николай Говорухин (govoruchin_nv@mail.ru)
  */
-public class CalculateTest{
+public class CalculateTest {
    /**
     * Test echo.
     */
