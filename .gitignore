@@ -1,4 +1,7 @@
 chapter_001/target/
-out/
-target/
 chapter_001/.idea/
+chapter_00/out/
+.directory
+target/
+.idea/
+out/
