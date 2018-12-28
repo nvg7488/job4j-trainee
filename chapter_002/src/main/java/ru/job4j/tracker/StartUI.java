@@ -3,7 +3,7 @@ package ru.job4j.tracker;
  * Класс StartUI: точка входа в программу.
  * @author Николай Говорухин (govoruchin_nv@mail.ru)
  */
-class StartUI {
+public class StartUI {
     private static final String EXIT = "0";   // выход из программы
     private static final String ADD  = "1";   // добавление заявки
     private static final String SHOW = "2";   // демонстрация всех заявок

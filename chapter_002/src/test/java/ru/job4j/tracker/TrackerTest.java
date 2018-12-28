@@ -6,7 +6,7 @@ package ru.job4j.tracker;
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-class TrackerTest {
+public class TrackerTest {
     /** Тест добавления одного элемента в пустой трекер. */
     @Test
     public void testAddOneItemInEmptyTracker() {
@@ -22,7 +22,8 @@ class TrackerTest {
         Item item1 = new Item("name1", "description1", 1);
         tracker.addItem(item1);
         assertThat(tracker.findAll()[0], is(item1));
-        Item item2 = new Item("name2", "description2", 2);
+        Item item2
+                = new Item("name2", "description2", 2);
         tracker.addItem(item2);
         assertThat(tracker.findAll()[1], is(item2));
     }
@@ -65,21 +66,6 @@ class TrackerTest {
         tracker.delete(item1.getId());
         assertThat(tracker.findAll()[0], is(item2));
     }
-    /** Тест функции addItem после Update. */
-    @Test
-    public void testAddAfterDelete() {
-        Tracker tracker = new Tracker();
-        Item item1 = new Item("name1", "description1", 1);
-        tracker.addItem(item1);
-        Item item2 = new Item("name2", "description2", 2);
-        tracker.addItem(item2);
-        Item item3 = new Item("name3", "description3", 3);
-        tracker.addItem(item3);
-
-        tracker.delete(item1.getId());
-        assertThat(tracker.findAll()[0], is(item2));
-        assertThat(tracker.findAll()[1], is(item3));
-    }
     /** Тест функции FindAll. */
     @Test
     public void testFindAll() {
@@ -120,6 +106,6 @@ class TrackerTest {
         tracker.addItem(item3);
 
         Item[] expected = tracker.findByName("name2");
-        assertThat(new Item[]{item1, item2}, is(expected));
+        assertThat(new Item[]{item2}, is(expected));
     }
 }
