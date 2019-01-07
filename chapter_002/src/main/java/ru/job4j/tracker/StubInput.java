@@ -13,6 +13,7 @@ public class StubInput implements Input {
     public StubInput(final String[] answers) {
         this.answers = answers;
     }
+
     /**
      * Метод ввода/вывода.
      * @param question вопрос пользователя

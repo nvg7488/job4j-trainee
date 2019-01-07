@@ -78,9 +78,9 @@ class Tracker {
      */
     public Item findById(String id) {
         Item result = null;
-        for (Item item : items) {
-            if (item.getId().equals(id)) {
-                result = item;
+        for (int index = 0; index < this.position; index++) {
+            if (items[index].getId().equals(id)) {
+                result = this.items[index];
                 break;
             }
         }
