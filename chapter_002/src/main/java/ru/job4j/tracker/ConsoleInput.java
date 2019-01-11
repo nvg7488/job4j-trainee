@@ -1,9 +1,9 @@
 package ru.job4j.tracker;
+import java.util.Scanner;
 /**
  * Класс для ввода/вывода.
  * @author Николай Говорухин (govoruchin_nv@mail.ru)
  */
-import java.util.Scanner;
 public class ConsoleInput implements Input {
     private Scanner scanner = new Scanner(System.in);
     /**
