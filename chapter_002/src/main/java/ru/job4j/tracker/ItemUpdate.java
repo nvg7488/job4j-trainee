@@ -1,6 +1,5 @@
 package ru.job4j.tracker;
 /**
- * Класс ItemUpdate.
  * @author Николай Говорухин (govoruchin_nv@mail.ru)
  */
 public class ItemUpdate implements UserAction {

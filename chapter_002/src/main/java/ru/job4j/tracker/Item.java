@@ -1,6 +1,5 @@
 package ru.job4j.tracker;
 /**
- * Класс Item.
  * @author Николай Говорухин (govoruchin_nv@mail.ru)
  */
 class Item {

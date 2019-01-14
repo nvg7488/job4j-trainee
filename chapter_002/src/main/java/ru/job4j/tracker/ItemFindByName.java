@@ -1,6 +1,5 @@
 package ru.job4j.tracker;
 /**
- * Класс ItemFindByName.
  * @author Николай Говорухин (govoruchin_nv@mail.ru)
  */
 public class ItemFindByName implements UserAction {

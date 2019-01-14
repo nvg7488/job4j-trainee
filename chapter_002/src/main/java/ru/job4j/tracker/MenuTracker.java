@@ -1,6 +1,5 @@
 package ru.job4j.tracker;
 /**
- * Класс Item.
  * @author Николай Говорухин (govoruchin_nv@mail.ru)
  */
 import java.util.ArrayList;
@@ -16,12 +15,12 @@ public class MenuTracker {
     }
     public int getActionsLentgh() { return  this.actions.size(); }
     public void fillActions() {
-        this.actions.add(new ItemAdd(1, "Add Item."));
-        this.actions.add(new ItemUpdate(2, "Update Item."));
-        this.actions.add(new ItemDelete(3, "Delete Item."));
-        this.actions.add(new ItemFindById(4, "Find Item by ID."));
-        this.actions.add(new ItemFindByName(5, "Find Item by Name."));
-        this.actions.add(new ItemShowAll(6, "Show all Item."));
+        this.actions.add(new ItemAdd(0, "Add Item."));
+        this.actions.add(new ItemUpdate(1, "Update Item."));
+        this.actions.add(new ItemDelete(2, "Delete Item."));
+        this.actions.add(new ItemFindById(3, "Find Item by ID."));
+        this.actions.add(new ItemFindByName(4, "Find Item by Name."));
+        this.actions.add(new ItemShowAll(5, "Show all Item."));
     }
     public void select(int key) { this.actions.get(key).execute(this.input, this.tracker); }
     public void show() {

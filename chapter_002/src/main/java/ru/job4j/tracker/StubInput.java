@@ -1,9 +1,5 @@
 package ru.job4j.tracker;
-
-import java.util.List;
-
 /**
- * Класс теста интерфейса ввода/вывода.
  * @author Николай Говорухин (govoruchin_nv@mail.ru)
  */
 public class StubInput implements Input {
@@ -24,5 +20,15 @@ public class StubInput implements Input {
      */
     public String ask(String question) {
         return this.answers[this.position++];
+    }
+
+    /**
+     * Метод ввода/вывода.
+     * @param question  вопрос пользователя
+     * @return ответ пользователю
+     * @range массив параметров
+     */
+    public int ask(String question, int[] range) {
+        return Integer.parseInt(this.ask(question));
     }
 }
