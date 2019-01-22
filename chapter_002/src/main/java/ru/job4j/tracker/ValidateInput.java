@@ -2,19 +2,20 @@ package ru.job4j.tracker;
 /**
  * @author Николай Говорухин (govoruchin_nv@mail.ru)
  */
-public class ValidateInput extends ConsoleInput {
-    /**
-     * Метод ввода/вывода.
-     * @param question  вопрос пользователя
-     * @return ответ пользователю
-     * @range массив параметров
-     */
-    public int ask(String question, int[] range) {
+public class ValidateInput implements Input {
+    private final Input input;
+    public ValidateInput(final Input input) { this.input = input; }
+
+    @Override
+    public String ask(String question) { return this.input.ask(question); }
+
+    @Override
+    public int ask(String question, int[] range) throws MenuOutException {
         boolean invalid = true;
-        int value = Integer.parseInt(this.ask(question));
+        int value = -1;
         do {
             try {
-                value = super.ask(question, range);
+                value = this.input.ask(question, range);
                 invalid = false;
             } catch (MenuOutException moe) {
                 moe.printStackTrace();
