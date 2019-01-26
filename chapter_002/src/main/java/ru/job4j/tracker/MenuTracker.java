@@ -29,7 +29,7 @@ class ItemUpdate implements UserAction {
 public class MenuTracker {
     private Input input;
     private Tracker tracker;
-    private List<UserAction> actions = new ArrayList<>();
+    public List<UserAction> actions = new ArrayList<>();
 
     public MenuTracker(Input input, Tracker tracker) {
         this.input = input;
@@ -39,7 +39,7 @@ public class MenuTracker {
     public void fillActions() {
         this.actions.add(this.new ItemAdd(0, "Add Item."));
         this.actions.add(new ItemUpdate(1, "Update Item."));
-        this.actions.add(new ItemDelete(2, "Delete Item."));
+//        this.actions.add(new ItemDelete(2, "Delete Item."));
         this.actions.add(new ItemFindById(3, "Find Item by ID."));
         this.actions.add(new ItemFindByName(4, "Find Item by Name."));
         this.actions.add(new MenuTracker.ItemShowAll(5, "Show all Item."));

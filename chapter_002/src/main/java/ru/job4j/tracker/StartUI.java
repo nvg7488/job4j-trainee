@@ -26,6 +26,15 @@ public class StartUI {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
         List<Integer> range = new ArrayList<>();
         menu.fillActions();
+        UserAction ItemDelete = new UserAction() {
+            public int index;
+            public String name;
+//            public int getIndex (int index) { this.index = index; }
+            public int key() {  return this.index; }
+            public void execute(Input input, Tracker tracker) { tracker.delete(input.ask("Введите ID записи, подлежащей удалению: ")); }
+            public String info() { return String.format("%d, %s", this.index, this.name); }
+        };
+        menu.actions.add(ItemDelete);
         for (int index = 0; index < menu.getActionsLentgh(); index++) {
             range.add(index);
         }
