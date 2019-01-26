@@ -4,6 +4,28 @@ package ru.job4j.tracker;
  */
 import java.util.ArrayList;
 import java.util.List;
+class ItemUpdate implements UserAction {
+    private int index;
+    private String name;
+    public ItemUpdate(int index, String name) {
+        this.index = index;
+        this.name = name;
+    }
+    public int key() { return this.index; }
+    public void execute(Input input, Tracker tracker) {
+        String idToEdit = input.ask("Введите ID записи, подлежащей редактированию: ");
+        if (tracker.findById(idToEdit) == null) {
+            System.out.println("Запись с введённым ID не существует.");
+        } else {
+            String newName = input.ask("Введите новой имя для редактируемой записи: ");
+            String newDescription = input.ask("Введите новое описание для редактируемой записи: ");
+            Item item = new Item(newName, newDescription, System.currentTimeMillis());
+            item.setId(idToEdit);
+            tracker.update(item);
+        }
+    }
+    public String info() { return String.format("%d, %s", this.index, this.name); }
+}
 public class MenuTracker {
     private Input input;
     private Tracker tracker;
