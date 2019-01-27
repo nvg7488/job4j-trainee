@@ -7,8 +7,6 @@ class ItemFindByName extends BaseAction {
     public void execute(Input input, Tracker tracker) {
         String nameToFind = input.ask("Введите имя искомой записи: ");
         Item[] searchResult = tracker.findByName(nameToFind);
-        for (Item item : searchResult) {
-            item.printInfo();
-        }
+        for (Item item : searchResult) { item.printInfo(); }
     }
 }

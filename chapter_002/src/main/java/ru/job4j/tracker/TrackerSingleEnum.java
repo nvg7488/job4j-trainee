@@ -5,7 +5,8 @@ package ru.job4j.tracker;
  */
 import java.util.Arrays;
 import java.util.Random;
-class Tracker {
+public enum TrackerSingleEnum {
+    INSTANCE;
     /** Массив для хранения заявок. */
     private Item[] items = new Item[100];
     /** Указатель ячейки для новой заявки. */

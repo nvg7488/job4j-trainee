@@ -13,7 +13,11 @@ public class StartUI {
     private Tracker tracker;
 
     /** Точка входа в программу. */
-    public static void main(String[] args) { new StartUI(new ValidateInput(new ConsoleInput()), new Tracker()).init(); }
+    public static void main(String[] args) {
+        TrackerSingleEnum trackerEnum = TrackerSingleEnum.INSTANCE;
+        TrackerSingleStatic trackerSingleStatic = TrackerSingleStatic.getInstance();
+        new StartUI(new ValidateInput(new ConsoleInput()), new Tracker()).init();
+    }
 
     public StartUI(Input input, Tracker tracker) {
         this.input = input;

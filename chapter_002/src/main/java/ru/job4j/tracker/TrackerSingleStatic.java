@@ -5,7 +5,8 @@ package ru.job4j.tracker;
  */
 import java.util.Arrays;
 import java.util.Random;
-class Tracker {
+public class TrackerSingleStatic {
+    private static TrackerSingleStatic instance;
     /** Массив для хранения заявок. */
     private Item[] items = new Item[100];
     /** Указатель ячейки для новой заявки. */
@@ -13,18 +14,16 @@ class Tracker {
     /** Константа для генерации уникального ID. */
     private static final Random RND = new Random();
 
+    public static TrackerSingleStatic getInstance() {
+        if (instance == null) { instance = new TrackerSingleStatic(); }
+        return instance;
+    }
+
     /**
      * Добавить элемент в хранилище.
-     * @param item - добавляемый элемент
+     * @param model - добавляемый элемент
      */
-    public Item addItem(Item item) {
-        if (position == items.length - 1) {
-            items = Arrays.copyOf(items, (int) (1.5 * items.length));
-        }
-        item.setId(generateId());
-        this.items[position++] = item;
-        return item;
-    }
+    public Item addItem(Item model) { return model; }
     /**
      * Генерирует ID.
      * @return ID

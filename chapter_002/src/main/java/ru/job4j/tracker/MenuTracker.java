@@ -40,7 +40,6 @@ public class MenuTracker {
         this.actions.add(this.new ItemAdd(0, "Add Item."));
         this.actions.add(new ItemUpdate(1, "Update Item."));
         this.actions.add(new ItemFindById(3, "Find Item by ID."));
-//        this.actions.add(new CopyAction(4, "Find Item by Name."));
         this.actions.add(new ItemFindByName(4, "Find Item by Name."));
         this.actions.add(new MenuTracker.ItemShowAll(5, "Show all Item."));
     }
