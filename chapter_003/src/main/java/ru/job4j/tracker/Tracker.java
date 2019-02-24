@@ -79,16 +79,13 @@ class Tracker {
      * @param key - текст для поиска
      * @return - возвращает нужный элемент.
      */
-//    public Item[] findByName(String key) {
-//        Item[] result = new Item[this.position];
-//        int newPosition = 0;
-//        for (int index = 0; index < this.position; index++) {
-//            if (items[index].getName().equals(key)) {
-//                result[newPosition] = items[index];
-//                newPosition++;
-//            }
-//        }
-//        result = Arrays.copyOf(result, newPosition);
-//        return result;
-//    }
+    public List<Item> findByName(String key) {
+        List<Item> result = new ArrayList<>();
+        for (Item item : items) {
+            if (item.getName().equals(key)) {
+                result.add(item);
+            }
+        }
+        return result;
+    }
 }
