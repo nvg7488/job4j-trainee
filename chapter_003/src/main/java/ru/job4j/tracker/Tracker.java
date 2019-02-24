@@ -35,15 +35,16 @@ class Tracker {
      * Заменить элемент в хранилище.
      * @param item - то, чем заменяем элемент с таким же ID
      */
-//    public void update(Item item) {
-//        String idToUpdate = item.getId();
-//        for (int index = 0; index < position; index++) {
-//            if (this.items[index].getId().equals(idToUpdate)) {
-//                this.items[index] = item;
-//                break;
-//            }
-//        }
-//    }
+    public void update(Item item) {
+        for (int index = 0; index < this.items.size(); index++) {
+            String itemId = this.items.get(index).getId();
+            if (item.getId().equals(itemId)) {
+                item.setId(itemId);
+                this.items.set(index, item);
+                break;
+            }
+        }
+    }
     /**
      * Удалить элемент в хранилище.
      * @param id - ID удаляемой записи
@@ -70,16 +71,16 @@ class Tracker {
      * @param id - указываем ID
      * @return - возвращаемый элемент
      */
-//    public Item findById(String id) {
-//        Item result = null;
-//        for (int index = 0; index < this.position; index++) {
-//            if (items[index].getId().equals(id)) {
-//                result = this.items[index];
-//                break;
-//            }
-//        }
-//        return result;
-//    }
+    public Item findById(String id) {
+        Item result = null;
+        for (Item item : items) {
+            if (item.getId().equals(id)) {
+                result = item;
+                break;
+            }
+        }
+        return result;
+    }
     /**
      * Найти элемент по полю "name".
      * @param key - текст для поиска
@@ -96,9 +97,5 @@ class Tracker {
 //        }
 //        result = Arrays.copyOf(result, newPosition);
 //        return result;
-//    }
-    /** Геттер указатель ячейки */
-//    public int getPosition() {
-//        return position;
 //    }
 }
