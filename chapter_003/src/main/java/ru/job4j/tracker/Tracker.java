@@ -47,18 +47,11 @@ class Tracker {
     }
     /**
      * Удалить элемент в хранилище.
-     * @param id - ID удаляемой записи
+     * @param item - удаляемая запись
      */
-//    public void delete(String id) {
-//        for (int index = 0; index < position; index++) {
-//            if (this.items[index].getId().equals(id)) {
-//                this.items[index] = this.items[position - 1];
-//                this.items[position - 1] = null;
-//                position--;
-//                break;
-//            }
-//        }
-//    }
+    public void delete(Item item) {
+        items.remove(item);
+    }
     /**
      * Вернуть массив из непустых элементов в хранилище.
      * @return - возвращает массив Item
