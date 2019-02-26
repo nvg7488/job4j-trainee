@@ -11,5 +11,15 @@ public class SortUser {
         final int result = left.getName().compareTo(right.getName());
         return result != 0 ? result : Integer.compare(left.getAge(), right.getAge());
     }
-
+    public List<User> sort(List<User> users) {
+        Comparator<User> userComparator = new Comparator<User>() {
+            @Override
+            public int compare(User user1, User user2) {
+                int result = user1.getName().compareTo(user1.getName());
+                return result != 0 ? result : user1.getAge().compareTo(user2.getAge());
+            }
+        };
+        users.sort(userComparator);
+        return users;
+    }
 }
