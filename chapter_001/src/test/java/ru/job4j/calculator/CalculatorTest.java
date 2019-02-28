@@ -6,7 +6,7 @@ import static org.junit.Assert.assertThat;
  * Test методов add, subtraction, multiplication, division; getResult
  * @author Николай Говорухин (govoruchin_nv@mail.ru)
  */
-public class CalculatorTest{
+public class CalculatorTest {
    /**
     * Test add.
     */

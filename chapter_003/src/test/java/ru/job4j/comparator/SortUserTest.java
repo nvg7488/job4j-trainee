@@ -10,7 +10,7 @@ import static org.hamcrest.Matchers.contains;
  */
 public class SortUserTest {
     @Test
-    public void SortTest() {
+    public void sortTest() {
         assertThat(
                 new SortUser().compare(
                         new User("Name", 20),
@@ -19,7 +19,7 @@ public class SortUserTest {
         );
     }
     @Test
-    public void UserTest() {
+    public void userTest() {
         List<User> users = new ArrayList<>();
         User user1 = new User("name", 25);
         users.add(user1);
@@ -30,7 +30,6 @@ public class SortUserTest {
         User user4 = new User("name", 30);
         users.add(user4);
         new SortUser().sort(users);
-//        assertThat(users, contains(user2, user4, user1, user3));
-        assertThat(users, contains(user2, user3, user1, user4));
+        assertThat(users, contains(user1, user2, user4, user3));
     }
 }
