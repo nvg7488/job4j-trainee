@@ -8,30 +8,38 @@ class Engineer extends Profession {
      * Конструктор профессии инженер.
      * @param name имя специалиста
      */
-    Engineer(String name) { super(name, "Инженер"); }
+    Engineer(String name) {
+        super(name, "Инженер");
+    }
 
     /**
      * Геттер для "name".
      * @return имя специалиста
      */
-    String getName() { return super.getName(); }
+    String getName() {
+        return super.getName();
+    }
 
     /**
      * Вложенный класс Home.
      */
-    public class Home{
+    public class Home {
         /** Наименование здания. */
         private String home;
         /**
          * Конструктор здания.
          * @param home наименование здания
          */
-        Home(String home) { this.home = home; }
+        Home(String home) {
+            this.home = home;
+        }
         /**
          * Геттер для "name".
          * @return Наименование здания
          */
-        String getName() { return this.home; }
+        String getName() {
+            return this.home;
+        }
     }
 
     /**

@@ -23,20 +23,28 @@ class Man {
      * Зеттер для "name".
      * @param name имя человека
      */
-    void setName(String name) { this.name = name; }
+    void setName(String name) {
+        this.name = name;
+    }
     /**
      * Зеттер для "age".
      * @param age возраст человека
      */
-    void setAge(int age) { this.age = age; }
+    void setAge(int age) {
+        this.age = age;
+    }
     /**
      * Геттер для "name".
      * @return имя человека
      */
-    String getName() { return this.name; }
+    String getName() {
+        return this.name;
+    }
     /**
      * Геттер для "age".
      * @return возраст человека
      */
-    int getAge() { return this.age; }
+    int getAge() {
+        return this.age;
+    }
 }

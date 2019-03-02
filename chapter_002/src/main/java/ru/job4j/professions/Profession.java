@@ -23,20 +23,28 @@ class Profession {
      * Зеттер для "name".
      * @param name специалиста
      */
-    void setName(String name) { this.name = name; }
+    void setName(String name) {
+        this.name = name;
+    }
     /**
      * Зеттер для "profession".
      * @param profession название профессии
      */
-    void setProfession(String profession) { this.profession = profession; }
+    void setProfession(String profession) {
+        this.profession = profession;
+    }
     /**
      * Геттер для "name".
      * @return имя специалиста
      */
-    String getName() { return name; }
+    String getName() {
+        return name;
+    }
     /**
      * Геттер для "profession".
      * @return название профессии
      */
-    String getProfession() { return profession; }
+    String getProfession() {
+        return profession;
+    }
 }
