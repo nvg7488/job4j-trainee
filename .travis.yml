@@ -15,6 +15,6 @@ notifications:
       - govoruchin_nv@mail.ru
     on_success: never # default: change
     on_failure: always # default: always
-    env:
-      global:
-        - CODECOV_TOKEN="2cb2d952-8a2d-43a3-b228-5968333758a5"
+  env:
+    global:
+      - CODECOV_TOKEN="2cb2d952-8a2d-43a3-b228-5968333758a5"

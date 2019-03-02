@@ -14,8 +14,7 @@
     </properties>
 
     <modules>
-        <module>chapter_003</module>
-        <module>tests</module>
+        <module>chapter_001</module>
     </modules>
 
     <dependencies>
