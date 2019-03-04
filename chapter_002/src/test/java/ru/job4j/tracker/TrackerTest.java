@@ -93,4 +93,18 @@ public class TrackerTest {
         Item expected = tracker.findById(item3.getId());
         assertThat(item3, is(expected));
     }
+    /** Тест функции FindByName. */
+    @Test
+    public void testFindByName() {
+        Tracker tracker = new Tracker();
+        Item item1 = new Item("name1", "description1", 1);
+        tracker.addItem(item1);
+        Item item2 = new Item("name2", "description2", 2);
+        tracker.addItem(item2);
+        Item item3 = new Item("name3", "description3", 3);
+        tracker.addItem(item3);
+
+        Item[] expected = tracker.findByName("name2");
+        assertThat(new Item[]{item2}, is(expected));
+    }
 }

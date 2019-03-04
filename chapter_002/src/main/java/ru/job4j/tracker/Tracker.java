@@ -49,7 +49,6 @@ public class Tracker {
      * Удалить элемент в хранилище.
      * @param id - ID удаляемой записи
      */
-//    public boolean delete(Item item) {
     public void delete(String id) {
         for (int index = 0; index < position; index++) {
             if (this.items[index].getId().equals(id)) {
@@ -94,9 +93,9 @@ public class Tracker {
     public Item[] findByName(String key) {
         Item[] result = new Item[this.position];
         int newPosition = 0;
-        for (Item item : items) {
-            if (item.getName().equals(key)) {
-                result[newPosition] = item;
+        for (int index = 0; index < this.position; index++) {
+            if (items[index].getName().equals(key)) {
+                result[newPosition] = items[index];
                 newPosition++;
             }
         }
