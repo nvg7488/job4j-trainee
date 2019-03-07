@@ -10,10 +10,10 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 public class StartUITest {
     private Tracker tracker;
-    @Before
-    public void newTracker() {
-        this.tracker = new Tracker();
-    }
+//    @Before
+//    public void newTracker() {
+//        this.tracker = new Tracker();
+//    }
 
     /** Test метода StartUI.addItem. */
 //    @Test
