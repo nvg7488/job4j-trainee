@@ -1,4 +1,4 @@
-package com;
+package ru.job4j.com;
 
 
 public class Account {

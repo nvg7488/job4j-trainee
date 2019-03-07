@@ -1,4 +1,4 @@
-package com;
+package ru.job4j.com;
 
 
 import java.util.*;
@@ -13,8 +13,9 @@ public class Convert {
     List<Integer> makeList(int[][] array) {
         ArrayList<Integer> list = new ArrayList<>();
         for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++)   //  оператор д.б. в {}
+            for (int j = 0; j < array[i].length; j++) {
                 list.add(array[i][j]);
+            }
         }
         return list;
     }
@@ -29,10 +30,11 @@ public class Convert {
         int[][] array = new int[rws][cls];
         for (int i = 0; i < rws; i++) {
             for (int j = 0; j < cls; j++) {
-                if (iterator.hasNext())
-                    array[i][j] = iterator.next();  //  оператор д.б. в {}
-                else
-                    array[i][j] = 0;                //  оператор д.б. в {}
+                if (iterator.hasNext()) {
+                    array[i][j] = iterator.next();
+                } else {
+                    array[i][j] = 0;
+                }
             }
         }
         return array;

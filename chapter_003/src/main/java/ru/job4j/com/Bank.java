@@ -1,7 +1,9 @@
-package com;
+package ru.job4j.com;
 
 
 
+
+import ru.job4j.comparator.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,8 +39,7 @@ public class Bank {
         return this.treemap.get(user);
     }
 
-    public boolean transfer(User user1, Account account1,
-                                 User user2, Account account2, double amount) {
+    public boolean transfer(User user1, Account account1, User user2, Account account2, double amount) {
         return this.treemap.get(user1).contains(account1)
                 && this.treemap.get(user2).contains(account2)
                 && getActualAccount(user1, account1).transfer(
