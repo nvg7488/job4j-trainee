@@ -22,7 +22,7 @@ public class Convert {
 
 
     //Converts list to array
-    public int[][] makeArray(List<Integer> list, int rws) {
+    public int[][] makeArray(ArrayList<Integer> list, int rws) {
         Iterator<Integer> iterator = list.iterator();
         int cls = list.size() / rws + (list.size() % rws == 0 ? 0 : 1);
 
