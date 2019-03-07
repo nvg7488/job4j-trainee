@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Convert {
 
-    public Convert(){
+    public Convert() {
 
     }
 
@@ -13,7 +13,7 @@ public class Convert {
     List<Integer> makeList(int[][] array) {
         ArrayList<Integer> list = new ArrayList<>();
         for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++)
+            for (int j = 0; j < array[i].length; j++)   //  оператор д.б. в {}
                 list.add(array[i][j]);
         }
         return list;
@@ -30,9 +30,9 @@ public class Convert {
         for (int i = 0; i < rws; i++) {
             for (int j = 0; j < cls; j++) {
                 if (iterator.hasNext())
-                    array[i][j] = iterator.next();
+                    array[i][j] = iterator.next();  //  оператор д.б. в {}
                 else
-                    array[i][j] = 0;
+                    array[i][j] = 0;                //  оператор д.б. в {}
             }
         }
         return array;
