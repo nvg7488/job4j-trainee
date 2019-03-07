@@ -16,7 +16,7 @@ public class Sorter {
         return sortedList;
     }
 
-    List<User> sortnamelength(List<User> list) {
+    List<User> sortnamelength(List<User> list) {    //  sortNameLength
         Comparator<User> compar = new Comparator<User>() {
             @Override
             public int compare(User o1, User o2) {
@@ -27,7 +27,7 @@ public class Sorter {
         return list;
     }
 
-    List<User> sortboth(List<User> list) {
+    List<User> sortboth(List<User> list) {  //  sortBoth
         Comparator<User> compar1 = new Comparator<User>() {
             @Override
             public int compare(User o1, User o2) {
