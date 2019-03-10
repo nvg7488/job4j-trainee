@@ -26,7 +26,7 @@ public class StartUITest {
     @Test
     public void testEditItem() {
         long id = System.currentTimeMillis();
-        Item item = tracker.addItem(new Item("test name","description", id));
+        Item item = tracker.addItem(new Item("test name", "description", id));
         Input input = new StubInput(new String[]{
                 "1", "test name", "description",
                 "3", item.getId(), "test replace", "description",
