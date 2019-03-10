@@ -2,8 +2,6 @@ package ru.job4j.com;
 
 import org.junit.Test;
 import java.util.ArrayList;
-//import java.util.Iterator;
-
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 

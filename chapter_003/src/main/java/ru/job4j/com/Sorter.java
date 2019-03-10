@@ -1,8 +1,6 @@
 package ru.job4j.com;
 
-
 import ru.job4j.comparator.User;
-
 import java.util.*;
 
 public class Sorter {
@@ -10,7 +8,7 @@ public class Sorter {
     public Sorter() {
     }
 
-    Set<User> sort(List<User> list) {
+    public Set<User> sort(List<User> list) {
         TreeSet<User> sortedList = new TreeSet<>();
         sortedList.addAll(list);
         return sortedList;
