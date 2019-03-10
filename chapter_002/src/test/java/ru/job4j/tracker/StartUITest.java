@@ -10,18 +10,18 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 public class StartUITest {
     private Tracker tracker;
-//    @Before
-//    public void newTracker() {
-//        this.tracker = new Tracker();
-//    }
+    @Before
+    public void newTracker() {
+        this.tracker = new Tracker();
+    }
 
     /** Test метода StartUI.addItem. */
-//    @Test
-//    public void testAddItem() {
-//        Input input = new StubInput(new String[] {"0", "test name", "description", "6"});
-//        new StartUI(input, tracker).init();
-//        assertThat(tracker.findAll()[0].getName(), is("test name"));
-//    }
+    @Test
+    public void testAddItem() {
+        Input input = new StubInput(new String[] {"1", "test name", "description", "0"});
+        new StartUI(input, tracker).init();
+        assertThat(tracker.findAll()[0].getName(), is("test name"));
+    }
     /** Test метода StartUI.editItem. */
 //    @Test
 //    public void testEditItem() {
