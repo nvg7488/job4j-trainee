@@ -35,15 +35,15 @@ public class StartUITest {
         assertThat(tracker.findAll()[0].getName(), is("test replace"));
     }
     /** Test метода StartUI.delItem. */
-//    @Test
-//    public void testDelItem() {
-//        tracker.addItem(new Item("name1", "description1", 1));
-//        tracker.addItem(new Item("name2", "description2", 2));
-//        String deleteID = tracker.findAll()[0].getId();
-//        Input input = new StubInput(new String[] {"3", deleteID, "1", "6"});
-//        new StartUI(input, tracker).init();
-//        assertThat(tracker.findAll()[0].getName(), is("name2"));
-//    }
+    @Test
+    public void testDelItem() {
+        tracker.addItem(new Item("name1", "description1", 1));
+        tracker.addItem(new Item("name2", "description2", 2));
+        String deleteID = tracker.findAll()[0].getId();
+        Input input = new StubInput(new String[] {"4", deleteID, "0"});
+        new StartUI(input, tracker).init();
+        assertThat(tracker.findAll()[0].getName(), is("name2"));
+    }
     /** Test метода StartUI.findItemByName. */
 //    @Test
 //    public void testFindByName() {
