@@ -23,14 +23,17 @@ public class StartUITest {
         assertThat(tracker.findAll()[0].getName(), is("test name"));
     }
     /** Test метода StartUI.editItem. */
-//    @Test
-//    public void testEditItem() {
-//        Tracker tracker = new Tracker();
-//        Item item = tracker.addItem(new Item("test name", "description", System.currentTimeMillis()));
-//        Input input = new StubInput(new String[] {"2", item.getId(), "test replace", "заменили заявку", "6"});
-//        new StartUI(input, tracker).init();
-//        assertThat(tracker.findAll()[0].getName(), is("test replace"));
-//    }
+    @Test
+    public void testEditItem() {
+        long id = System.currentTimeMillis();
+        Item item = tracker.addItem(new Item("test name","description", id));
+        Input input = new StubInput(new String[]{
+                "1", "test name", "description",
+                "3", item.getId(), "test replace", "description",
+                "0"});
+        new StartUI(input, tracker).init();
+        assertThat(tracker.findAll()[0].getName(), is("test replace"));
+    }
     /** Test метода StartUI.delItem. */
 //    @Test
 //    public void testDelItem() {
