@@ -45,19 +45,22 @@ public class StartUITest {
         assertThat(tracker.findAll()[0].getName(), is("name2"));
     }
     /** Test метода StartUI.findItemByName. */
-//    @Test
-//    public void testFindByName() {
-//        tracker.addItem(new Item("name1", "description1", 1));
-//        tracker.addItem(new Item("name0", "description2", 2));
-//        tracker.addItem(new Item("name2", "description3", 3));
-//        tracker.addItem(new Item("name0", "description4", 4));
-//        tracker.addItem(new Item("name3", "description5", 5));
-//        Item[] result = {
-//                new Item("name0", "description2", 2),
-//                new Item("name0", "description4", 4)};
-//        Item[] find = tracker.findByName("name0");
-//        Input input = new StubInput(new String[] {"6", "name0", "6"});
-//        new StartUI(input, tracker).init();
-//        assertThat(find, is(result));
-//    }
+    @Test
+    public void testFindByName() {
+        Item item1 = new Item("name1", "description1", 1);
+        tracker.addItem(item1);
+        Item item2 = new Item("name0", "description2", 2);
+        tracker.addItem(item2);
+        Item item3 = new Item("name2", "description3", 3);
+        tracker.addItem(item3);
+        Item item4 = new Item("name0", "description4", 4);
+        tracker.addItem(item4);
+        Item item5 = new Item("name3", "description5", 5);
+        tracker.addItem(item5);
+        Item[] result = new Item[]{item2, item4};
+        Item[] find = tracker.findByName("name0");
+        Input input = new StubInput(new String[] {"6", "name0", "0"});
+        new StartUI(input, tracker).init();
+        assertThat(find, is(result));
+    }
 }
