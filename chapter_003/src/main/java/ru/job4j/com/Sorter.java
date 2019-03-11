@@ -1,6 +1,5 @@
 package ru.job4j.com;
 
-import ru.job4j.comparator.User;
 import java.util.*;
 
 public class Sorter {
