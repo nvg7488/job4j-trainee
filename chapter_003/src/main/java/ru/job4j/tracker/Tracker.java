@@ -78,4 +78,22 @@ public class Tracker {
         }
         return result;
     }
+    /**
+     * Найти элемент по полю "name".
+     * @param key - текст для поиска
+     * @return - возвращает нужный элемент.
+     */
+    public List<Item> findByName(String key) {
+        List<Item> result = new ArrayList<>();
+        for (Item item : items) {
+            if (item.getName().equals(key)) {
+                result.add(item);
+            }
+        }
+        return result;
+    }
+
+    public int getPosition() {
+        return items.size();
+    }
 }
