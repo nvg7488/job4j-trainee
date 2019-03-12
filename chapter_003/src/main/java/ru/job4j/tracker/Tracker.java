@@ -39,6 +39,13 @@ public class Tracker {
             }
         }
     }
+    /**
+     * Удалить элемент в хранилище.
+     * @param item - удаляемая запись
+     */
+    public void delete(Item item) {
+        items.remove(item);
+    }
 
     /**
      * Генерирует ID

@@ -41,4 +41,15 @@ public class TrackerTest {
         tracker.update(item);
         assertThat(tracker.findById(id), is(item));
     }
+    /** Тест функции Delete. */
+    @Test
+    public void testDelete() {
+        Tracker tracker = new Tracker();
+        Item item1 = new Item("name1", "description1", 1);
+        tracker.addItem(item1);
+        Item item2 = new Item("name2", "description2", 2);
+        tracker.addItem(item2);
+        tracker.delete(item1);
+        Assert.assertEquals(tracker.findAll().size(), 1);
+    }
 }
