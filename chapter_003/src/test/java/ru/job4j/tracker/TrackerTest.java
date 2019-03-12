@@ -31,4 +31,14 @@ public class TrackerTest {
         tracker.addItem(item2);
         Assert.assertEquals(tracker.findAll().size(), 2);
     }
+    /** Тест функции Update. */
+    @Test
+    public void testUpdate() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("name", "description", 1);
+        tracker.addItem(item);
+        String id = item.getId();
+        tracker.update(item);
+        assertThat(tracker.findById(id), is(item));
+    }
 }

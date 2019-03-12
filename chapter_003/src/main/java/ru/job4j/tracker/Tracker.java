@@ -26,6 +26,21 @@ public class Tracker {
         return item;
     }
     /**
+     * Заменить элемент в хранилище.
+     * @param item - то, чем заменяем элемент с таким же ID
+     */
+    public void update(Item item) {
+        for (int index = 0; index < this.items.size(); index++) {
+            String itemId = this.items.get(index).getId();
+            if (item.getId().equals(itemId)) {
+                item.setId(itemId);
+                this.items.set(index, item);
+                break;
+            }
+        }
+    }
+
+    /**
      * Генерирует ID
      * @return ID
      */
@@ -40,5 +55,20 @@ public class Tracker {
      */
     public List<Item> findAll() {
         return new ArrayList<>(items);
+    }
+    /**
+     * Найти элемент по ID.
+     * @param id - указываем ID
+     * @return - возвращаемый элемент
+     */
+    public Item findById(String id) {
+        Item result = null;
+        for (Item item : items) {
+            if (item.getId().equals(id)) {
+                result = item;
+                break;
+            }
+        }
+        return result;
     }
 }
