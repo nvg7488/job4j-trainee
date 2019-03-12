@@ -95,7 +95,7 @@ public class MenuTracker {
             return this.index;
         }
         public void execute(Input input, Tracker tracker) {
-            if (tracker.getPosition() == 0) {
+            if (tracker.getSize() == 0) {
                 System.out.println("Tracker пустой!");
             } else {
                 for (Item item : tracker.findAll()) {

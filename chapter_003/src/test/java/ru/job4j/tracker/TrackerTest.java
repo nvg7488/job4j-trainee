@@ -26,10 +26,9 @@ public class TrackerTest {
         Tracker tracker = new Tracker();
         Item item1 = new Item("name1", "description1", 1);
         tracker.addItem(item1);
-        Assert.assertEquals(tracker.findAll().size(), 1);
         Item item2 = new Item("name2", "description2", 2);
         tracker.addItem(item2);
-        Assert.assertEquals(tracker.findAll().size(), 2);
+        Assert.assertEquals(tracker.getSize(), 2);
     }
     /** Тест функции Update. */
     @Test
@@ -40,6 +39,7 @@ public class TrackerTest {
         String id = item.getId();
         tracker.update(item);
         assertThat(tracker.findById(id), is(item));
+        assertThat(tracker.findByName("name").size(), is(1));
     }
     /** Тест функции Delete. */
     @Test

@@ -93,7 +93,7 @@ public class Tracker {
         return result;
     }
 
-    public int getPosition() {
+    public int getSize() {
         return items.size();
     }
 }
