@@ -42,6 +42,8 @@ public class Item {
     }
 
     public void printInfo() {
-        System.out.println(String.format("Item ID: %s\nName: %s\nDescription: %s", this.getId(), this.getName(), this.getDescription()));
+        System.out.println(String.format(
+                "Item ID: %s\nName: %s\nDescription: %s", this.getId(), this.getName(), this.getDescription()
+        ));
     }
 }
