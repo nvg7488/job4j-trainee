@@ -10,12 +10,27 @@ public class User {
         this.name = name;
         this.passport = passport;
     }
+
     @Override
-    public boolean equals(Object user) {
-        return (this == user);
+    public boolean equals(Object object) {
+        boolean result;
+        if (this == object) result = true;
+        if (object == null || getClass() != object.getClass()) result = false;
+        User user = (User) object;
+        result = name.equals(user.name) && passport.equals(user.passport);
+        return result;
     }
+
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(name, passport);
     }
+    //    @Override
+//    public boolean equals(Object user) {
+//        return (this == user);
+//    }
+//    @Override
+//    public int hashCode() {
+//        return super.hashCode();
+//    }
 }
