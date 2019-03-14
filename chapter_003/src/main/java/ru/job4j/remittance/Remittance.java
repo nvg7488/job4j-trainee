@@ -11,7 +11,12 @@ public class Remittance {
     private Map<User, List<Account>> expenses = new HashMap<>();
 
     /**   Добавление нового пользователя.   */
-    public void addUser(User user) {}
+    public void addUser(User user) {
+        if (user != null) {
+            expenses.putIfAbsent(user, new ArrayList<>());
+        }
+    }
+
     /**   Удаление пользователя.   */
     public void deleteUser(User user) {}
     /**   Добавление счёта зарегистрированному пользователю.   */
@@ -29,7 +34,15 @@ public class Remittance {
      * или не хватает денег на счёте с которого переводят,
      * должен вернуть false.
      */
-    public boolean transferMoney (String srcPassport, String srcRequisite, String destPassport, String dstRequisite, double amount) {
+    public boolean transferMoney (String srcPassport, String srcRequisite, String dstPassport, String dstRequisite, double amount) {
         return true;
+    }
+
+    public int sizeUser() {
+        int result = 0;
+        if (expenses != null) {
+            result = expenses.size();
+        }
+        return result;
     }
 }

@@ -25,12 +25,4 @@ public class User {
     public int hashCode() {
         return Objects.hash(name, passport);
     }
-    //    @Override
-//    public boolean equals(Object user) {
-//        return (this == user);
-//    }
-//    @Override
-//    public int hashCode() {
-//        return super.hashCode();
-//    }
 }
