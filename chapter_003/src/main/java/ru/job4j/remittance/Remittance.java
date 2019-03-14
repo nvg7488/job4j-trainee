@@ -18,13 +18,16 @@ public class Remittance {
     }
 
     /**   Удаление пользователя.   */
-    public void deleteUser(User user) {}
+    public void deleteUser(User user) {
+    }
     /**   Добавление счёта зарегистрированному пользователю.   */
-    public void addAccountToUser(String passport, Account account) {}
+    public void addAccountToUser(String passport, Account account) {
+    }
     /**   Уладение счёта у зарегистрированного пользователя.   */
-    public void deleteAccountFromUser(String passport, Account account) {}
+    public void deleteAccountFromUser(String passport, Account account) {
+    }
     /**   Получяет список счетов для пользователя.   */
-    public List<Account> getUserAccounts (String passport) {
+    public List<Account> getUserAccounts(String passport) {
         List<Account> accounts = new ArrayList<>();
         return accounts;
     }
@@ -34,7 +37,7 @@ public class Remittance {
      * или не хватает денег на счёте с которого переводят,
      * должен вернуть false.
      */
-    public boolean transferMoney (String srcPassport, String srcRequisite, String dstPassport, String dstRequisite, double amount) {
+    public boolean transferMoney(String srcPassport, String srcRequisite, String dstPassport, String dstRequisite, double amount) {
         return true;
     }
 

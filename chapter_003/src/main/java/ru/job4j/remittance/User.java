@@ -14,8 +14,12 @@ public class User {
     @Override
     public boolean equals(Object object) {
         boolean result;
-        if (this == object) result = true;
-        if (object == null || getClass() != object.getClass()) result = false;
+        if (this == object) {
+            result = true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            result = false;
+        }
         User user = (User) object;
         result = name.equals(user.name) && passport.equals(user.passport);
         return result;
