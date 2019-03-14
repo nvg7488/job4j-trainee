@@ -11,8 +11,8 @@ public class User {
         this.passport = passport;
     }
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public boolean equals(Object user) {
+        return (this == user);
     }
     @Override
     public int hashCode() {
