@@ -19,6 +19,9 @@ public class Remittance {
 
     /**   Удаление пользователя.   */
     public void deleteUser(User user) {
+        if (user != null) {
+            expenses.remove(user);
+        }
     }
     /**   Добавление счёта зарегистрированному пользователю.   */
     public void addAccountToUser(String passport, Account account) {

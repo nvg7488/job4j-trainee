@@ -8,10 +8,12 @@ import static org.junit.Assert.assertThat;
 
 public class RemittanceTest {
     @Test
-    public void addUserTest() {
+    public void userAddDeleteTest() {
         Remittance remittance = new Remittance();
         User user = new User("govoruchin_nv", "ausweis");
         remittance.addUser(user);
         assertThat(remittance.sizeUser(), is(1));
+        remittance.deleteUser(user);
+        assertThat(remittance.sizeUser(), is(0));
     }
 }
