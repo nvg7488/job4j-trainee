@@ -28,7 +28,7 @@ public class RemittanceTest {
                 remittance.
                         getUserAccounts("ausweis").
                         add(new Account(999000.09, 7488)),
-                is (true)
+                is(true)
         );
     }
 }
