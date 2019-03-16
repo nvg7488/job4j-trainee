@@ -23,12 +23,21 @@ public class Remittance {
             expenses.remove(user);
         }
     }
+
     /**   Добавление счёта зарегистрированному пользователю.   */
     public void addAccountToUser(String passport, Account account) {
+        for (User user : expenses.keySet()) {
+            if ((passport.equals(user.setPassport())) && (account != null)) {
+                List<Account> list = expenses.get(user);
+                list.add(account);
+            }
+        }
     }
+
     /**   Уладение счёта у зарегистрированного пользователя.   */
     public void deleteAccountFromUser(String passport, Account account) {
     }
+
     /**   Получяет список счетов для пользователя.   */
     public List<Account> getUserAccounts(String passport) {
         List<Account> accounts = new ArrayList<>();

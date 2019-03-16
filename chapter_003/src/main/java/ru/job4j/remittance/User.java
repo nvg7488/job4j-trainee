@@ -10,6 +10,9 @@ public class User {
         this.name = name;
         this.passport = passport;
     }
+    public String setPassport() {
+        return this.passport;
+    }
 
     @Override
     public boolean equals(Object object) {
