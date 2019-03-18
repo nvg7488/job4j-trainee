@@ -49,8 +49,16 @@ public class Remittance {
     /**   Получяет список счетов для пользователя.   */
     public List<Account> getUserAccounts(String passport) {
         List<Account> accounts = new ArrayList<>();
+        for (User user : expenses.keySet()) {
+            if (passport.equals(user.setPassport())) {
+                accounts = expenses.get(user);
+            } else {
+                accounts = null;
+            }
+        }
         return accounts;
     }
+
     /**
      * Метод для перечисления денег с одного счёта на другой счёт:
      * если счёт не найден
