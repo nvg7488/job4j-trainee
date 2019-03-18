@@ -11,8 +11,10 @@ public class RemittanceTest {
     public void testUserAddDelete() {
         Remittance remittance = new Remittance();
         User user = new User("govoruchin_nv", "ausweis");
+
         remittance.addUser(user);
         assertThat(remittance.sizeUser(), is(1));
+
         remittance.deleteUser(user);
         assertThat(remittance.sizeUser(), is(0));
     }
@@ -22,6 +24,7 @@ public class RemittanceTest {
         Remittance remittance = new Remittance();
         User user = new User("govoruchin_nv", "ausweis");
         remittance.addUser(user);
+
         remittance.addAccountToUser("ausweis", new Account(999000.09, 7488));
         remittance.addAccountToUser("ausweis", new Account(999000.09, 1980));
         assertThat(
@@ -29,6 +32,14 @@ public class RemittanceTest {
                         getUserAccounts("ausweis").
                         add(new Account(999000.09, 7488)),
                 is(true)
+        );
+
+        remittance.deleteAccountFromUser("ausweis", new Account(999000.09, 1980));
+        assertThat(
+                remittance.
+                        getUserAccounts("ausweis").
+                        remove(new Account(999000.09, 1980)),
+                is(false)
         );
     }
 }

@@ -36,6 +36,14 @@ public class Remittance {
 
     /**   Уладение счёта у зарегистрированного пользователя.   */
     public void deleteAccountFromUser(String passport, Account account) {
+        for (User user : expenses.keySet()) {
+            if ((passport.equals(user.setPassport())) && (account != null)) {
+                List<Account> list = expenses.get(user);
+                if (list.contains(account)) {
+                    list.remove(account);
+                }
+            }
+        }
     }
 
     /**   Получяет список счетов для пользователя.   */
