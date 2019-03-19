@@ -14,6 +14,7 @@ public class TrackerTest {
         Item item = new Item("NAME", "Description", 1);
         tracker.addItem(item);
         assertThat(tracker.findAll()[0], is(item));
+        assertThat(item.getCreate(), is(1L));
     }
     /** Тест добавления двух элементов в пустой трекер. */
     @Test
