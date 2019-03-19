@@ -3,6 +3,7 @@ package ru.job4j.tracker;
  * @author Николай Говорухин (govoruchin_nv@mail.ru)
  */
 import org.junit.Test;
+import java.util.StringJoiner;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 public class TestItemAdd {
