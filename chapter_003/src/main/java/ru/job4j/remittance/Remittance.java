@@ -26,10 +26,12 @@ public class Remittance {
 
     /**   Добавление счёта зарегистрированному пользователю.   */
     public void addAccountToUser(String passport, Account account) {
+        List<Account> list = null;
         for (User user : expenses.keySet()) {
             if ((passport.equals(user.setPassport())) && (account != null)) {
-                List<Account> list = expenses.get(user);
+                list = expenses.get(user);
                 list.add(account);
+                break;
             }
         }
     }
@@ -39,9 +41,8 @@ public class Remittance {
         for (User user : expenses.keySet()) {
             if ((passport.equals(user.setPassport())) && (account != null)) {
                 List<Account> list = expenses.get(user);
-                if (list.contains(account)) {
-                    list.remove(account);
-                }
+                list.remove(account);
+                break;
             }
         }
     }
@@ -52,6 +53,7 @@ public class Remittance {
         for (User user : expenses.keySet()) {
             if (passport.equals(user.setPassport())) {
                 accounts = expenses.get(user);
+                break;
             } else {
                 accounts = null;
             }
@@ -65,8 +67,36 @@ public class Remittance {
      * или не хватает денег на счёте с которого переводят,
      * должен вернуть false.
      */
-    public boolean transferMoney(String srcPassport, String srcRequisite, String dstPassport, String dstRequisite, double amount) {
-        return true;
+    public boolean transferMoney(String srcPassport, String srcRequisite,
+                                 String dstPassport, String dstRequisite,
+                                 double amount) {
+//        for (User srcUser : expenses.keySet()) {
+//            for (User dstUser : expenses.keySet()) {
+////                dstList = expenses.get(dstUser);
+////                for (Account srcAccount : srcUser) {}
+//            }
+//        }
+
+        boolean result = false;
+        return result;
+
+//        final List<Account> list = bankMap.get(dstUser);
+//        if ((list.contains(dstAccount)) && (srcAccount.checkValue(amount))) {
+//            srcAccount.withdraw(amount);
+//            dstAccount.deposit(amount);
+//            result = true;
+//        }
+    }
+
+    public List<Account> findAccountPassport(String passport) {
+        List<Account> result = null;
+        for (User user : expenses.keySet()) {
+            if (passport.equals(user.setPassport())) {
+                result = expenses.get(user);
+                break;
+            }
+        }
+        return result;
     }
 
     public int sizeUser() {
