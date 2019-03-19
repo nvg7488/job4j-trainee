@@ -65,6 +65,14 @@ public class RemittanceTest {
         remittance.addAccountToUser("passport2", account22);
         remittance.addAccountToUser("passport2", account23);
 
-        remittance.transferMoney("passport1", 1, "passport2", 3, 200);
+        remittance.transferMoney("passport1", 1, "passport2", 3, 2000);
+
+        Account testAcc = new Account(12000.00, 1);
+        testAcc.withdraw(2000);
+        assertThat(remittance.getUserAccounts("passport1").get(0).getValue(), is(testAcc.getValue()));
+
+        testAcc = new Account(3000.00, 3);
+        testAcc.deposit(2000);
+        assertThat(remittance.getUserAccounts("passport2").get(2).getValue(), is(testAcc.getValue()));
     }
 }
