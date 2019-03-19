@@ -14,5 +14,6 @@ public class DoctorTest {
         Man pacient = new Man("Николай", 144);
         String expectString = "Доктор Говорухин лечит пациента Николай.";
         assertThat(doc.heal(pacient), is(expectString));
+        assertThat(doc.getName(), is("Говорухин"));
     }
 }

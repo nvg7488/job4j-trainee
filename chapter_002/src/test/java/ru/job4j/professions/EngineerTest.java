@@ -13,5 +13,6 @@ public class EngineerTest {
         Engineer engineer = new Engineer("Говорухин");
         String expectString = "Инженер Говорухин спроектировал здание Дом.";
         assertThat(engineer.build(), is(expectString));
+        assertThat(engineer.getName(), is("Говорухин"));
     }
 }

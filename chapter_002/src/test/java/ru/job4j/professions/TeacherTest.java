@@ -14,5 +14,6 @@ public class TeacherTest {
         Man student = new Man("Николай", 16);
         String expectString = "Учитель Говорухин обучает ученика Николай.";
         assertThat(professional.teach(student), is(expectString));
+        assertThat(professional.getName(), is("Говорухин"));
     }
 }

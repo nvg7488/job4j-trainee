@@ -16,9 +16,7 @@ public class DoubleArray {
         for (item1 = 0, item2 = 0, item = 0; item1 < arr1.length && item2 < arr2.length;) {
             result[item++] = (arr1[item1] < arr2[item2]) ? arr1[item1++] : arr2[item2++];
         }
-        if (item1 < arr1.length) {
-            System.arraycopy(arr1, item1, result, item, arr1.length - item1);
-        } else {
+        if (item1 >= arr1.length) {
             System.arraycopy(arr2, item2, result, item, arr2.length - item2);
         }
         return result;
