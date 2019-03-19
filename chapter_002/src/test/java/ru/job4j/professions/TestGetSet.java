@@ -6,7 +6,7 @@ import static org.junit.Assert.assertThat;
  * Тесты класса Teacher .
  * @author Николай Говорухин (govoruchin_nv@mail.ru)
  */
-public class testGetSet {
+public class TestGetSet {
     @Test
     public void testMan() {
         Man man = new Man(" ", 0);

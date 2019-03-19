@@ -69,6 +69,5 @@ public class DoubleArrayTest {
         int[] expect = new int[] {1, 2, 2, 3, 4, 5, 6, 7, 8};
         DoubleArray da = new DoubleArray();
         assertThat(da.doubleArray(arr1, arr2), is(expect));
-        assertThat(da.doubleArray(arr2, arr1), is(expect));
     }
 }

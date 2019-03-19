@@ -11,7 +11,5 @@ public class TestItemAdd {
         ItemAdd add = new ItemAdd(0, "Name");
         assertThat(add.key(), is(0));
         assertThat(add.info(), is("0, Name"));
-
-        
     }
 }
