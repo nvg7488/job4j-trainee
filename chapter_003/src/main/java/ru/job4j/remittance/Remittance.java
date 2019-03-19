@@ -70,22 +70,32 @@ public class Remittance {
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String dstPassport, String dstRequisite,
                                  double amount) {
-//        for (User srcUser : expenses.keySet()) {
-//            for (User dstUser : expenses.keySet()) {
-////                dstList = expenses.get(dstUser);
-////                for (Account srcAccount : srcUser) {}
-//            }
-//        }
-
         boolean result = false;
-        return result;
+        List<Account> list = expenses.get(findAccountPassport(dstPassport));
+        Account srcAccount = findAccount(srcPassport, srcRequisite);
+        Account dstAccount = findAccount(dstPassport, dstRequisite);
+        if ((list.contains(dstAccount)) && (srcAccount.checkValue(amount))) {
+            srcAccount.withdraw(amount);
+            dstAccount.deposit(amount);
+            result = true;
+        }
 
-//        final List<Account> list = bankMap.get(dstUser);
-//        if ((list.contains(dstAccount)) && (srcAccount.checkValue(amount))) {
-//            srcAccount.withdraw(amount);
-//            dstAccount.deposit(amount);
-//            result = true;
-//        }
+        return result;
+    }
+
+    public Account findAccount(String passport, String requisite) {
+        Account result = null;
+        for (User user : expenses.keySet()) {
+            if (passport.equals(user.setPassport())) {
+                for (Account account : expenses.get(user)) {
+                    if (requisite.equals(account.getRequisites())) {
+                        result = account;
+                    }
+                }
+                break;
+            }
+        }
+        return result;
     }
 
     public List<Account> findAccountPassport(String passport) {

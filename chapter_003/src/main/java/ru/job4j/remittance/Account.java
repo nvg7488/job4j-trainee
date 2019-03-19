@@ -17,4 +17,13 @@ public class Account {
     public long getRequisites() {
         return this.requisites;
     }
+    public boolean checkValue(double amount) {
+        return (this.value >= amount);
+    }
+    public void withdraw(double amount) {
+        this.value -= amount;
+    }
+    public void deposit(double amount) {
+        this.value += amount;
+    }
 }
