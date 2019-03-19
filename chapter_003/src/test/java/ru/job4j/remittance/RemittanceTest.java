@@ -42,4 +42,29 @@ public class RemittanceTest {
                 is(false)
         );
     }
+
+    @Test
+    public void testTransferMoney() {
+        Remittance remittance = new Remittance();
+
+        User user1 = new User("name1", "passport1");
+        remittance.addUser(user1);
+        Account account11 = new Account(12000.00, 1);
+        Account account12 = new Account(4000.00, 2);
+        Account account13 = new Account(5000.00, 3);
+        remittance.addAccountToUser("passport1", account11);
+        remittance.addAccountToUser("passport1", account12);
+        remittance.addAccountToUser("passport1", account13);
+
+        User user2 = new User("name2", "passport2");
+        remittance.addUser(user2);
+        Account account21 = new Account(10000.00, 1);
+        Account account22 = new Account(8000.00, 2);
+        Account account23 = new Account(3000.00, 3);
+        remittance.addAccountToUser("passport2", account21);
+        remittance.addAccountToUser("passport2", account22);
+        remittance.addAccountToUser("passport2", account23);
+
+        remittance.transferMoney("passport1", 1, "passport2", 3, 200);
+    }
 }

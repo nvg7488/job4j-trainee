@@ -67,29 +67,28 @@ public class Remittance {
      * или не хватает денег на счёте с которого переводят,
      * должен вернуть false.
      */
-    public boolean transferMoney(String srcPassport, String srcRequisite,
-                                 String dstPassport, String dstRequisite,
-                                 double amount) {
+    public boolean transferMoney(String srcPassport, long srcRequisite,
+                                 String dstPassport, long dstRequisite, double amount) {
         boolean result = false;
         List<Account> list = expenses.get(findAccountPassport(dstPassport));
         Account srcAccount = findAccount(srcPassport, srcRequisite);
         Account dstAccount = findAccount(dstPassport, dstRequisite);
-        if ((list.contains(dstAccount)) && (srcAccount.checkValue(amount))) {
+        if (srcAccount.checkValue(amount)) {
             srcAccount.withdraw(amount);
             dstAccount.deposit(amount);
             result = true;
         }
-
         return result;
     }
 
-    public Account findAccount(String passport, String requisite) {
+    public Account findAccount(String passport, long requisite) {
         Account result = null;
         for (User user : expenses.keySet()) {
             if (passport.equals(user.setPassport())) {
                 for (Account account : expenses.get(user)) {
-                    if (requisite.equals(account.getRequisites())) {
+                    if (requisite == account.getRequisites()) {
                         result = account;
+                        break;
                     }
                 }
                 break;
