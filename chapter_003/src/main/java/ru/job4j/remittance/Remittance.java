@@ -73,9 +73,9 @@ public class Remittance {
         List<Account> list = expenses.get(findAccountPassport(dstPassport));
         Account srcAccount = findAccount(srcPassport, srcRequisite);
         Account dstAccount = findAccount(dstPassport, dstRequisite);
-        if ((srcAccount.checkValue(amount))
-                && (srcAccount != null)
+        if ((srcAccount != null)
                 && (dstAccount != null)
+                && (srcAccount.checkValue(amount))
                 && (amount < srcAccount.getValue())) {
             srcAccount.withdraw(amount);
             dstAccount.deposit(amount);
