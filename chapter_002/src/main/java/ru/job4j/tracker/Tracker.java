@@ -18,9 +18,6 @@ public class Tracker {
      * @param item - добавляемый элемент
      */
     public Item addItem(Item item) {
-        if (position == items.length - 1) {
-            items = Arrays.copyOf(items, (int) (1.5 * items.length));
-        }
         item.setId(generateId());
         this.items[position++] = item;
         return item;

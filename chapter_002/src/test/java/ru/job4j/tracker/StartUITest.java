@@ -6,6 +6,9 @@ package ru.job4j.tracker;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.StringJoiner;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 public class StartUITest {
@@ -94,11 +97,4 @@ public class StartUITest {
         assertThat(find, is(result));
     }
     /** Test метода StartUI.MenuError. */
-//    @Test
-//    public void testMenuError() {
-//        assertThat(
-//                new StartUI(new StubInput(new String[] {"!"}), tracker).init(),
-//                is(String.format("Неправильный выбор!"))
-//        );
-//    }
 }

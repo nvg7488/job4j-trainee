@@ -70,7 +70,6 @@ public class Remittance {
     public boolean transferMoney(String srcPassport, long srcRequisite,
                                  String dstPassport, long dstRequisite, double amount) {
         boolean result = false;
-        List<Account> list = expenses.get(findAccountPassport(dstPassport));
         Account srcAccount = findAccount(srcPassport, srcRequisite);
         Account dstAccount = findAccount(dstPassport, dstRequisite);
         if ((srcAccount != null)
@@ -98,18 +97,6 @@ public class Remittance {
         }
         return result;
     }
-
-    public List<Account> findAccountPassport(String passport) {
-        List<Account> result = null;
-        for (User user : expenses.keySet()) {
-            if (passport.equals(user.setPassport())) {
-                result = expenses.get(user);
-                break;
-            }
-        }
-        return result;
-    }
-
     public int sizeUser() {
         int result = 0;
         if (expenses != null) {
