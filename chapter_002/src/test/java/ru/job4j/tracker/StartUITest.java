@@ -93,4 +93,12 @@ public class StartUITest {
         new StartUI(input, tracker).init();
         assertThat(find, is(result));
     }
+    /** Test метода StartUI.MenuError. */
+    @Test
+    public void testMenuError() {
+        assertThat(
+                new StartUI(new StubInput(new String[] {"!"}), tracker).toString(),
+                is(String.format("Неправильный выбор!"))
+        );
+    }
 }
