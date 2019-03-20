@@ -13,4 +13,14 @@ public class TestItemAdd {
         assertThat(add.key(), is(0));
         assertThat(add.info(), is("0, Name"));
     }
+
+    @Test
+    public void testExecute() {
+        ItemAdd add = new ItemAdd(0, "name");
+        add.execute(
+                new StubInput(new String[] {"Name", "Description"}),
+                new Tracker()
+        );
+//        Item item = new Item(name, desc, System.currentTimeMillis());
+    }
 }

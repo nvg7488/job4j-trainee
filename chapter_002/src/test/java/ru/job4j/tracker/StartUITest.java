@@ -85,19 +85,11 @@ public class StartUITest {
     /** Test метода StartUI.findItemById. */
     @Test
     public void testFindItemById() {
-        Item item1 = new Item("name1", "description1", 1);
-        tracker.addItem(item1);
-        Item item2 = new Item("name0", "description2", 2);
-        tracker.addItem(item2);
-        Item item3 = new Item("name2", "description3", 3);
-        tracker.addItem(item3);
-        Item item4 = new Item("name0", "description4", 4);
-        tracker.addItem(item4);
-        Item item5 = new Item("name3", "description5", 5);
-        tracker.addItem(item5);
-        Item[] result = new Item[]{item1};
-        Item find = tracker.findById(item1.getId());
-        Input input = new StubInput(new String[] {"5", item1.getId(), "0"});
+        Item item = new Item("name", "description", 0);
+        tracker.addItem(item);
+        Item result = item;
+        Item find = tracker.findById(item.getId());
+        Input input = new StubInput(new String[] {"5", item.getId(), "0"});
         new StartUI(input, tracker).init();
         assertThat(find, is(result));
     }

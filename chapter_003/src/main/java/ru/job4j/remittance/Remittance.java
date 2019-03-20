@@ -75,8 +75,7 @@ public class Remittance {
         Account dstAccount = findAccount(dstPassport, dstRequisite);
         if ((srcAccount != null)
                 && (dstAccount != null)
-                && (srcAccount.checkValue(amount))
-                && (amount < srcAccount.getValue())) {
+                && (srcAccount.checkValue(amount)) {
             srcAccount.withdraw(amount);
             dstAccount.deposit(amount);
             result = true;

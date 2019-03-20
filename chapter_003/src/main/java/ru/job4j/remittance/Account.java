@@ -11,9 +11,6 @@ public class Account {
         this.value = value;
         this.requisites = requisites;
     }
-    public double getValue() {
-        return this.value;
-    }
     public long getRequisites() {
         return this.requisites;
     }
