@@ -21,6 +21,5 @@ public class TestItemAdd {
                 new StubInput(new String[] {"Name", "Description"}),
                 new Tracker()
         );
-//        Item item = new Item(name, desc, System.currentTimeMillis());
     }
 }
