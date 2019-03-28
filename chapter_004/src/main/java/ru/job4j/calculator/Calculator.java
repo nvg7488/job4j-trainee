@@ -20,11 +20,10 @@ public class Calculator {
         Calculator calc = new Calculator();
         calc.multiple(
                 0, 10, 2,
-                new Operation() {
-                    @Override
-                    public double calc(int left, int right) {
-                        return left * right;
-                    }
+                (value, index) -> {
+                    int result = value * index;
+                    System.out.printf("Multiple %s * %s = %s %n", value, index, result);
+                    return result;
                 }
         );
     }
