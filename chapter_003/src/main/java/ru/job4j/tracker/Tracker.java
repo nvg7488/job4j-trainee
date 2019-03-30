@@ -16,8 +16,26 @@ public class Tracker {
         this.items.add(item);
         return item;
     }
+    public void update(Item item) {
+        for (Item nextItem : this.items) {
+            if (nextItem != null && nextItem.getCreate() == item.getCreate()) {
+                nextItem.setName(item.getName());
+                nextItem.setDescription(item.getDescription());
+                nextItem.setCreate(item.getCreate());
+            }
+        }
+    }
 
     public ArrayList<Item> findAll() {
         return this.items;
+    }
+    public Item findById(String id) {
+        Item result = null;
+        for (Item item : this.items) {
+            if (item.getId().equals(id)) {
+                result = item;
+            }
+        }
+        return result;
     }
 }
