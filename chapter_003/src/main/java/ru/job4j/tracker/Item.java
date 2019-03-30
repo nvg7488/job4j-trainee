@@ -39,10 +39,10 @@ public class Item {
         return this.create;
     }
 
-//    public void printInfo() {
-//        System.out.println(
-//                String.format("Item ID: %s\nName: %s\nDescription: %s",
-//                this.getId(), this.getName(), this.getDescription())
-//        );
-//    }
+    public void printInfo() {
+        System.out.println(
+                String.format("Item ID: %s\nName: %s\nDescription: %s",
+                this.getId(), this.getName(), this.getDescription())
+        );
+    }
 }

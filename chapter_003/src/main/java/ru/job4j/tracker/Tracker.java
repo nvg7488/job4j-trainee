@@ -59,4 +59,7 @@ public class Tracker {
         }
         return result.size() > 0 ? result : null;
     }
+    public int getSize() {
+        return items.size();
+    }
 }
