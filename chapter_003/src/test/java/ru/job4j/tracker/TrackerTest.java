@@ -3,6 +3,7 @@ package ru.job4j.tracker;
  * @author Николай Говорухин (govoruchin_nv@mail.ru)
  */
 import org.junit.Test;
+import java.util.ArrayList;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 public class TrackerTest {
@@ -11,7 +12,9 @@ public class TrackerTest {
         Tracker tracker = new Tracker();
         Item item = new Item("name", "desc", 0);
         tracker.addItem(item);
-        assertThat(tracker.findAll().get(0), is(item));
+        ArrayList<Item> expected = new ArrayList<>();
+        expected.add(item);
+        assertThat(expected, is(tracker.findByName("name")));
     }
 
     @Test
@@ -30,7 +33,7 @@ public class TrackerTest {
     @Test
     public void deleteTest() {
         Tracker tracker = new Tracker();
-        Item item = new Item("name", "desc", 0L);
+        Item item = new Item("name", "desc", 0);
         tracker.addItem(item);
         Item deleting = tracker.findAll().get(0);
         String name = deleting.getName();
