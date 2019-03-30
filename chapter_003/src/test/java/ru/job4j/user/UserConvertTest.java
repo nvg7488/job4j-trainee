@@ -1,18 +1,16 @@
 package ru.job4j.user;
+/**
+ * @author Николай Говорухин (govoruchin_nv@mail.ru)
+ */
 import org.junit.Test;
 import ru.job4j.user.User;
 import ru.job4j.user.UserConvert;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-/**
- * @author Николай Говорухин (govoruchin_nv@mail.ru)
- */
 public class UserConvertTest {
     @Test
     public void convertUserListToMapTest() {
