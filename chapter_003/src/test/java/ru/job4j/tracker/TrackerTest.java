@@ -26,4 +26,15 @@ public class TrackerTest {
         assertThat(result.getName(), is("nameUpdate"));
         assertThat(result.getDescription(), is("descUpdate"));
     }
+
+    @Test
+    public void deleteTest() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("name", "desc", 0L);
+        tracker.addItem(item);
+        Item deleting = tracker.findAll().get(0);
+        String name = deleting.getName();
+        tracker.delete(deleting);
+        assertThat(tracker.findAll().size(), is(0));
+    }
 }
