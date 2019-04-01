@@ -46,4 +46,19 @@ public class StartUITest {
         new StartUI(input, tracker).init();
         assertThat(find, is(result));
     }
+
+    /** Test метода StartUI.editItem. */
+    @Test
+    public void editItemTest() {
+        Tracker tracker = new Tracker();
+        long id = System.currentTimeMillis();
+        Item item = tracker.addItem(new Item("test name", "description", id));
+        Input input = new StubInput(new String[]{
+                "1", "test name", "description",
+                "3", item.getId(), "test replace", "description",
+                "0"});
+        new StartUI(input, tracker).init();
+        ArrayList<Item> result = tracker.findByName("test replace");
+        assertThat(tracker.findByName("test replace"), is(result));
+    }
 }
