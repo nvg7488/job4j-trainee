@@ -7,6 +7,7 @@ public class StartUI {
     private static final String ADD  = "1";   // добавление заявки
     private static final String SHOW = "2";   // демонстрация всех заявок
     private static final String EDIT = "3";   // редактирование заявки
+    private static final String DEL  = "4";   // удаление заявки
     private Input input;
     private Tracker tracker;
 
@@ -28,6 +29,8 @@ public class StartUI {
                 this.showAllItem();
             } else if (EDIT.equals(answer)) {
                 this.editItem();
+            } else if (DEL.equals(answer)) {
+//                this.delItem();
             } else if (EXIT.equals(answer)) {
                 System.out.println("Выход из программы, пока!");
                 exit = true;
@@ -41,6 +44,7 @@ public class StartUI {
         System.out.println("\t1. создание новой заявки");
         System.out.println("\t2. показывает все имеющиеся заявки");
         System.out.println("\t3. редактирование заявки");
+        System.out.println("\t4. удаление заявки");
         System.out.println("\t0. выход из программы");
     }
 
@@ -73,5 +77,8 @@ public class StartUI {
             item.setId(idToEdit);
             tracker.update(item);
         }
+    }
+    private void delItem(Item item) {
+        tracker.delete(item);
     }
 }
