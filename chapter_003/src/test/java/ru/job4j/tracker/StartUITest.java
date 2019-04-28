@@ -78,4 +78,16 @@ public class StartUITest {
         new StartUI(input, tracker).init();
         assertThat(tracker.findAll().size(), is(2));
     }
+
+    /** Test метода StartUI.showId. */
+    @Test
+    public void testShowId() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("name1", "description1", 1);
+        tracker.addItem(item);
+        tracker.addItem(new Item("name2", "description2", 2));
+        Input input = new StubInput(new String[] {"5", item.getId(), "0"});
+        new StartUI(input, tracker).init();
+        assertThat(tracker.findById(item.getId()).getName(), is("name1"));
+    }
 }

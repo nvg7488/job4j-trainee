@@ -8,6 +8,7 @@ public class StartUI {
     private static final String SHOW = "2";   // демонстрация всех заявок
     private static final String EDIT = "3";   // редактирование заявки
     private static final String DEL  = "4";   // удаление заявки
+    private static final String ID   = "5";   // поиск записи по ID
     private Input input;
     private Tracker tracker;
 
@@ -30,7 +31,9 @@ public class StartUI {
             } else if (EDIT.equals(answer)) {
                 this.editItem();
             } else if (DEL.equals(answer)) {
-//                this.delItem();
+                this.delItem();
+            } else if (ID.equals(answer)) {
+                this.showId();
             } else if (EXIT.equals(answer)) {
                 System.out.println("Выход из программы, пока!");
                 exit = true;
@@ -39,6 +42,7 @@ public class StartUI {
             }
         }
     }
+
     private void showMenu() {
         System.out.println("Меню:");
         System.out.println("\t1. создание новой заявки");
@@ -55,6 +59,14 @@ public class StartUI {
         Item item = new Item(name, desc, System.currentTimeMillis());
         this.tracker.addItem(item);
         System.out.println("------------ Новая заявка с Id: " + item.getId() + "-----------");
+    }
+    private void showId() {
+        String idToEdit = input.ask("Введите ID записи, подлежащей просмотра: ");
+        if (tracker.findById(idToEdit) == null) {
+            System.out.println("Запись с введённым ID не существует.");
+        } else {
+            tracker.findById(idToEdit);
+        }
     }
     private void showAllItem() {
         if (tracker.getSize() == 0) {
@@ -78,7 +90,12 @@ public class StartUI {
             tracker.update(item);
         }
     }
-    private void delItem(Item item) {
-        tracker.delete(item);
+    private void delItem() {
+        String idToEdit = input.ask("Введите ID записи, подлежащей удалению: ");
+        if (tracker.findById(idToEdit) == null) {
+            System.out.println("Запись с введённым ID не существует.");
+        } else {
+            tracker.delete(tracker.findById(idToEdit));
+        }
     }
 }
