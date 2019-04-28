@@ -90,4 +90,18 @@ public class StartUITest {
         new StartUI(input, tracker).init();
         assertThat(tracker.findById(item.getId()).getName(), is("name1"));
     }
+
+    /** Test метода StartUI.showName. */
+    @Test
+    public void testShowName() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("name1", "description1", 1);
+        tracker.addItem(item);
+        tracker.addItem(new Item("name2", "description2", 2));
+        ArrayList<Item> result = new ArrayList<>();
+        result.add(item);
+        Input input = new StubInput(new String[] {"6", "name1", "0"});
+        new StartUI(input, tracker).init();
+        assertThat(result.size(), is(1));
+    }
 }

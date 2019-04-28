@@ -9,6 +9,7 @@ public class StartUI {
     private static final String EDIT = "3";   // редактирование заявки
     private static final String DEL  = "4";   // удаление заявки
     private static final String ID   = "5";   // поиск записи по ID
+    private static final String NAME = "6";   // поиск записи по имени
     private Input input;
     private Tracker tracker;
 
@@ -34,6 +35,8 @@ public class StartUI {
                 this.delItem();
             } else if (ID.equals(answer)) {
                 this.showId();
+            } else if (NAME.equals(answer)) {
+                this.showName();
             } else if (EXIT.equals(answer)) {
                 System.out.println("Выход из программы, пока!");
                 exit = true;
@@ -61,11 +64,19 @@ public class StartUI {
         System.out.println("------------ Новая заявка с Id: " + item.getId() + "-----------");
     }
     private void showId() {
-        String idToEdit = input.ask("Введите ID записи, подлежащей просмотра: ");
-        if (tracker.findById(idToEdit) == null) {
+        String idToShow = input.ask("Введите ID записи, подлежащей просмотра: ");
+        if (tracker.findById(idToShow) == null) {
             System.out.println("Запись с введённым ID не существует.");
         } else {
-            tracker.findById(idToEdit);
+            tracker.findById(idToShow);
+        }
+    }
+    private void showName() {
+        String nameToShow = input.ask("Введите Name записи, подлежащей просмотра: ");
+        if (tracker.findByName(nameToShow) == null) {
+            System.out.println("Запись с введённым именем не существует.");
+        } else {
+            tracker.findByName(nameToShow);
         }
     }
     private void showAllItem() {
