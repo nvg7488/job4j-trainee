@@ -63,14 +63,19 @@ public class StartUITest {
     }
 
     /** Test метода StartUI.delItem. */
-//    @Test
-//    public void testDelItem() {
-//        Tracker tracker = new Tracker();
-//        tracker.addItem(new Item("name1", "description1", 1));
-//        tracker.addItem(new Item("name2", "description2", 2));
-//        String deleteID = tracker.findAll();
-//        Input input = new StubInput(new String[] {"4", new Item("name1", "description1", 1), "0"});
-//        new StartUI(input, tracker).init();
-//        assertThat(tracker.findAll()[0].getName(), is("name2"));
-//    }
+    @Test
+    public void testDelItem() {
+        Tracker tracker = new Tracker();
+        tracker.addItem(new Item("name1", "description1", 1));
+        tracker.addItem(new Item("name2", "description2", 2));
+        Input input = new StubInput(
+                new String[] {
+                        "4",
+                        String.valueOf(new Item("name1", "description1", 1)),
+                        "0"
+                }
+        );
+        new StartUI(input, tracker).init();
+        assertThat(tracker.findAll().size(), is(2));
+    }
 }
