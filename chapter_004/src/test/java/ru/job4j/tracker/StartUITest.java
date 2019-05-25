@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.function.Consumer;
 
@@ -52,16 +53,21 @@ public class StartUITest {
         assertThat(tracker.findById(item.getId()).getName(), is("name1"));
     }
 
-//    private void showName() {
-//        String nameToShow = input.ask("Введите Name записи, подлежащей просмотра: ");
-//        if (tracker.findByName(nameToShow) == null) {
-//            System.out.println("Запись с введённым именем не существует.");
-//        } else {
-//            tracker.findByName(nameToShow);
-//        }
-//    }
+    @Test
+    public void showNameTest() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("name1", "description1", 1);
+        tracker.addItem(item);
+        tracker.addItem(new Item("name2", "description2", 2));
+        ArrayList<Item> result = new ArrayList<>();
+        result.add(item);
+        Input input = new StubInput(new String[] {"6", "name1", "0"});
+        new StartUI(input, tracker, output).init();
+        assertThat(result.size(), is(1));
+    }
 
-//    private void showAllItem() {
+//    @Test
+//    public void showAllItemTest() {
 //        if (tracker.getSize() == 0) {
 //            System.out.println("Tracker пустой!");
 //        } else {
@@ -72,7 +78,8 @@ public class StartUITest {
 //        }
 //    }
 
-//    private void editItem() {
+//    @Test
+//    public void editItemTest() {
 //        String idToEdit = input.ask("Введите ID записи, подлежащей редактированию: ");
 //        if (tracker.findById(idToEdit) == null) {
 //            System.out.println("Запись с введённым ID не существует.");
@@ -85,7 +92,8 @@ public class StartUITest {
 //        }
 //    }
 
-//    private void delItem() {
+//    @Test
+//    public void delItemTest() {
 //        String idToEdit = input.ask("Введите ID записи, подлежащей удалению: ");
 //        if (tracker.findById(idToEdit) == null) {
 //            System.out.println("Запись с введённым ID не существует.");
@@ -94,7 +102,8 @@ public class StartUITest {
 //        }
 //    }
 
-//    private void showMenu() {
+//    @Test
+//    public void showMenuTest() {
 //        System.out.println("Меню:");
 //        System.out.println("\t1. создание новой заявки");
 //        System.out.println("\t2. показывает все имеющиеся заявки");
