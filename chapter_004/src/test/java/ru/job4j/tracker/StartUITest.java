@@ -111,23 +111,19 @@ public class StartUITest {
         assertThat(tracker.findByName("test replace"), is(result));
     }
 
-//    @Test
-//    public void delItemTest() {
-//        String idToEdit = input.ask("Введите ID записи, подлежащей удалению: ");
-//        if (tracker.findById(idToEdit) == null) {
-//            System.out.println("Запись с введённым ID не существует.");
-//        } else {
-//            tracker.delete(tracker.findById(idToEdit));
-//        }
-//    }
-
-//    @Test
-//    public void showMenuTest() {
-//        System.out.println("Меню:");
-//        System.out.println("\t1. создание новой заявки");
-//        System.out.println("\t2. показывает все имеющиеся заявки");
-//        System.out.println("\t3. редактирование заявки");
-//        System.out.println("\t4. удаление заявки");
-//        System.out.println("\t0. выход из программы");
-//    }
+    @Test
+    public void delItemTest() {
+        Tracker tracker = new Tracker();
+        tracker.addItem(new Item("name1", "description1", 1));
+        tracker.addItem(new Item("name2", "description2", 2));
+        Input input = new StubInput(
+                new String[] {
+                        "4",
+                        String.valueOf(new Item("name1", "description1", 1)),
+                        "0"
+                }
+        );
+        new StartUI(input, tracker, output).init();
+        assertThat(tracker.findAll().size(), is(2));
+    }
 }
