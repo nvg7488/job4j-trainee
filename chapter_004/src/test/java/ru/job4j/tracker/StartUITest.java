@@ -41,14 +41,16 @@ public class StartUITest {
         assertThat(tracker.findAll().get(0).getName(), is("test name"));
     }
 
-//    private void showId() {
-//        String idToShow = input.ask("Введите ID записи, подлежащей просмотра: ");
-//        if (tracker.findById(idToShow) == null) {
-//            System.out.println("Запись с введённым ID не существует.");
-//        } else {
-//            tracker.findById(idToShow);
-//        }
-//    }
+    @Test
+    public void showIdTest() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("name1", "description1", 1);
+        tracker.addItem(item);
+        tracker.addItem(new Item("name2", "description2", 2));
+        Input input = new StubInput(new String[] {"5", item.getId(), "0"});
+        new StartUI(input, tracker, output).init();
+        assertThat(tracker.findById(item.getId()).getName(), is("name1"));
+    }
 
 //    private void showName() {
 //        String nameToShow = input.ask("Введите Name записи, подлежащей просмотра: ");
