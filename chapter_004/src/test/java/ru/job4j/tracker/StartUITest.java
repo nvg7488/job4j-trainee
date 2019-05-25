@@ -97,19 +97,19 @@ public class StartUITest {
         assertThat(find, is(result));
     }
 
-//    @Test
-//    public void editItemTest() {
-//        String idToEdit = input.ask("Введите ID записи, подлежащей редактированию: ");
-//        if (tracker.findById(idToEdit) == null) {
-//            System.out.println("Запись с введённым ID не существует.");
-//        } else {
-//            String newName = input.ask("Введите новой имя для редактируемой записи: ");
-//            String newDescription = input.ask("Введите новое описание для редактируемой записи: ");
-//            Item item = new Item(newName, newDescription, System.currentTimeMillis());
-//            item.setId(idToEdit);
-//            tracker.update(item);
-//        }
-//    }
+    @Test
+    public void editItemTest() {
+        Tracker tracker = new Tracker();
+        long id = System.currentTimeMillis();
+        Item item = tracker.addItem(new Item("test name", "description", id));
+        Input input = new StubInput(new String[]{
+                "1", "test name", "description",
+                "3", item.getId(), "test replace", "description",
+                "0"});
+        new StartUI(input, tracker, output).init();
+        ArrayList<Item> result = tracker.findByName("test replace");
+        assertThat(tracker.findByName("test replace"), is(result));
+    }
 
 //    @Test
 //    public void delItemTest() {
