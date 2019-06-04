@@ -95,7 +95,7 @@ public class StartUI {
     private void editItem() {
         String idToEdit = input.ask("Введите ID записи, подлежащей редактированию: ");
         if (tracker.findById(idToEdit) == null) {
-            System.out.println("Запись с введённым ID не существует.");
+            consumer.accept("Запись с введённым ID не существует.");
         } else {
             String newName = input.ask("Введите новой имя для редактируемой записи: ");
             String newDescription = input.ask("Введите новое описание для редактируемой записи: ");
