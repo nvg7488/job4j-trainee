@@ -107,7 +107,7 @@ public class StartUI {
     private void delItem() {
         String idToEdit = input.ask("Введите ID записи, подлежащей удалению: ");
         if (tracker.findById(idToEdit) == null) {
-            System.out.println("Запись с введённым ID не существует.");
+            consumer.accept("Запись с введённым ID не существует.");
         } else {
             tracker.delete(tracker.findById(idToEdit));
         }
