@@ -77,7 +77,7 @@ public class StartUI {
     private void showName() {
         String nameToShow = input.ask("Введите Name записи, подлежащей просмотра: ");
         if (tracker.findByName(nameToShow) == null) {
-            System.out.println("Запись с введённым именем не существует.");
+            consumer.accept("Запись с введённым именем не существует.");
         } else {
             tracker.findByName(nameToShow);
         }
