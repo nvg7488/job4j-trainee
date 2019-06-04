@@ -38,7 +38,7 @@ public class StartUITest {
     public void addItemTest() {
         Tracker tracker = new Tracker();
         Input input = new StubInput(new String[] {"1", "test name", "description", "0"});
-        new StartUI(input, tracker, output).init();
+        new StartUI(input, tracker, System.out::println).init();
         assertThat(tracker.findAll().get(0).getName(), is("test name"));
     }
 

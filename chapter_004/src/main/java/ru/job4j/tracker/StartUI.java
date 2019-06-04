@@ -13,15 +13,15 @@ public class StartUI {
     private static final String NAME = "6";   // поиск записи по имени
     private Input input;
     private Tracker tracker;
-    private Consumer<String> output;
+    private Consumer<String> consumer;
 
     public static void main(String[] args) {
         new StartUI(new ConsoleInput(), new Tracker(), System.out::println).init();
     }
-    public StartUI(Input input, Tracker tracker, Consumer<String> output) {
+    public StartUI(Input input, Tracker tracker, Consumer<String> consumer) {
         this.input = input;
         this.tracker = tracker;
-        this.output = output;
+        this.consumer = consumer;
     }
     public void init() {
         boolean exit = false;
@@ -59,12 +59,12 @@ public class StartUI {
     }
 
     private void addItem() {
-        System.out.println("------------ Добавление новой заявки --------------");
+        consumer.accept("------------ Добавление новой заявки --------------");
         String name = this.input.ask("Введите имя заявки :");
         String desc = this.input.ask("Введите описание заявки :");
         Item item = new Item(name, desc, System.currentTimeMillis());
         this.tracker.addItem(item);
-        System.out.println("------------ Новая заявка с Id: " + item.getId() + "-----------");
+        consumer.accept("------------ Новая заявка с Id: " + item.getId() + "-----------");
     }
     private void showId() {
         String idToShow = input.ask("Введите ID записи, подлежащей просмотра: ");
