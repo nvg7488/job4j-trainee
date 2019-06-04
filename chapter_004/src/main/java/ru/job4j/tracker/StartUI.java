@@ -84,7 +84,7 @@ public class StartUI {
     }
     private void showAllItem() {
         if (tracker.getSize() == 0) {
-            System.out.println("Tracker пустой!");
+            consumer.accept("Tracker пустой!");
         } else {
             for (Item item : tracker.findAll()) {
                 System.out.println();
