@@ -69,7 +69,7 @@ public class StartUI {
     private void showId() {
         String idToShow = input.ask("Введите ID записи, подлежащей просмотра: ");
         if (tracker.findById(idToShow) == null) {
-            System.out.println("Запись с введённым ID не существует.");
+            consumer.accept("Запись с введённым ID не существует.");
         } else {
             tracker.findById(idToShow);
         }

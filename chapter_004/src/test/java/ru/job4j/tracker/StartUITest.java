@@ -16,14 +16,6 @@ import static org.junit.Assert.assertThat;
 public class StartUITest {
     private final PrintStream stdout = System.out;
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
-    private final Consumer<String> output = new Consumer<String>() {
-        private final PrintStream stdout = new PrintStream(out);
-
-        @Override
-        public void accept(String s) {
-            stdout.println(s);
-        }
-    };
 
     @Before
     public void loadOutput() {
@@ -49,7 +41,7 @@ public class StartUITest {
         tracker.addItem(item);
         tracker.addItem(new Item("name2", "description2", 2));
         Input input = new StubInput(new String[] {"5", item.getId(), "0"});
-        new StartUI(input, tracker, output).init();
+        new StartUI(input, tracker, System.out::println).init();
         assertThat(tracker.findById(item.getId()).getName(), is("name1"));
     }
 
@@ -62,7 +54,7 @@ public class StartUITest {
         ArrayList<Item> result = new ArrayList<>();
         result.add(item);
         Input input = new StubInput(new String[] {"6", "name1", "0"});
-        new StartUI(input, tracker, output).init();
+        new StartUI(input, tracker, System.out::println).init();
         assertThat(result.size(), is(1));
     }
 
@@ -93,7 +85,7 @@ public class StartUITest {
 
         ArrayList<Item> find = tracker.findAll();
         Input input = new StubInput(new String[] {"2", "0"});
-        new StartUI(input, tracker, output).init();
+        new StartUI(input, tracker, System.out::println).init();
         assertThat(find, is(result));
     }
 
@@ -106,7 +98,7 @@ public class StartUITest {
                 "1", "test name", "description",
                 "3", item.getId(), "test replace", "description",
                 "0"});
-        new StartUI(input, tracker, output).init();
+        new StartUI(input, tracker, System.out::println).init();
         ArrayList<Item> result = tracker.findByName("test replace");
         assertThat(tracker.findByName("test replace"), is(result));
     }
@@ -123,7 +115,7 @@ public class StartUITest {
                         "0"
                 }
         );
-        new StartUI(input, tracker, output).init();
+        new StartUI(input, tracker, System.out::println).init();
         assertThat(tracker.findAll().size(), is(2));
     }
 }
